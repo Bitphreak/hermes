@@ -1,0 +1,25 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile gradleApi()
+	compile localGroovy()
+	
+	compile group: 'com.pubnub', name: 'pubnub', version: '3.7.2'
+}
+
+group = 'com.maxjspaulding.gradle.hermes'
+version = version
+
+uploadArchives {
+	repositories {
+		mavenDeployer {
+			repository(url: uri('../repo'))
+		}
+	}
+
+}
